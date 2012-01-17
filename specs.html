@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>snake - specs</title>
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0/jasmine.css">
+    
+    <script src="lib/jasmine-1.1.0/jasmine.js"></script>
+    <script src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+    <script src="my.js"></script>
+    <script src="specs.js"></script>
+    
+    <script type="text/javascript"> 
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+      var trivialReporter = new jasmine.TrivialReporter();
+      jasmineEnv.addReporter(trivialReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return trivialReporter.specFilter(spec);
+      };
+ 
+      var currentWindowOnload = window.onload;
+ 
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+ 
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+    })();
+    </script>
+    
+	</head>
+  <body />  
+</html>

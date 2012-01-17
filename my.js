@@ -17,10 +17,6 @@ Array.prototype.filter = function(f) {
 		return filtered;
 };
 
-Array.prototype.random = function() {
-	return this[Math.floor((this.length-1)*Math.random())];
-};
-
 Array.prototype.without = function(other) {
 	var result = [];
 	for(var i = 0; i < this.length; i++)
@@ -29,3 +25,6 @@ Array.prototype.without = function(other) {
 	return result;
 };
 
+Array.prototype.random = function() {
+	return this[Math.floor((this.length-1)*Math.random())];
+};
