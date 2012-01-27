@@ -34,9 +34,31 @@ describe('has', function () {
 
 });
 
+describe('each', function() {
+	var numbers = [1, 2, 3, 4];
+	
+	it('should apply a predicate for each array element', function() {
+		var result = '';
+		numbers.each(function(e) {
+			result += e;
+		});
+		expect(result).toBe('1234');
+	});
+	
+	it('should apply a predicate for each array index', function() {
+		var result = '';
+		numbers.each(function(e, i) {
+			result += e+i;
+		});
+		expect(result).toBe('1357');
+	});
+	
+});
+
+
 describe('filter', function() {
 	
-	it('should filter array elements based on boolean expression', function() {
+	it('should filter array elements based on a boolean expression', function() {
 		var filtered = [1, 2, 3, 4].filter(function(e, i) {
 			return e % 2 === 0;
 		});
@@ -63,7 +85,7 @@ describe('random', function() {
 		(4).times(function(i) {
 			var some = numbers.random();
 			expect(numbers.has(some)).toBeTruthy();
-		})
+		});
 	});
 	
 });
